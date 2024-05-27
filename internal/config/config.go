@@ -8,7 +8,13 @@ import (
 )
 
 var (
-	PORT string
+	APP_PORT string
+
+	DB_HOST     string
+	DB_USER     string
+	DB_PASSWORD string
+	DB_NAME     string
+	DB_PORT     string
 )
 
 func loadEnv() {
@@ -17,11 +23,16 @@ func loadEnv() {
 		log.Fatal(err)
 	}
 
-	if PORT = os.Getenv("PORT"); PORT == "" {
-		PORT = "8008"
+	if APP_PORT = os.Getenv("APP_PORT"); APP_PORT == "" {
+		APP_PORT = "8080"
 	}
+	DB_HOST = os.Getenv("DB_HOST")
+	DB_USER = os.Getenv("DB_USER")
+	DB_PASSWORD = os.Getenv("DB_PASSWORD")
+	DB_NAME = os.Getenv("DB_NAME")
+	DB_PORT = os.Getenv("DB_PORT")
 }
 
-func Load() {
-	go loadEnv()
+func LoadConfigs() {
+	loadEnv()
 }
