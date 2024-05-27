@@ -6,5 +6,7 @@ import (
 )
 
 func LoadRoutes(r *gin.RouterGroup) {
-	r.POST("/signup", controller.SignUp)
+	r.POST("/signup", controller.Signup)
+
+	r.GET("/getusers", controller.Getusers)
 }

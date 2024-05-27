@@ -9,7 +9,9 @@ import (
 	"gorm.io/gorm"
 )
 
-func Connect() (*gorm.DB, error) {
+var DB *gorm.DB
+
+func Connect() {
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s",
 		config.DB_HOST, config.DB_USER, config.DB_PASSWORD, config.DB_NAME, config.DB_PORT,
 	)
@@ -19,5 +21,5 @@ func Connect() (*gorm.DB, error) {
 		log.Fatal(err)
 	}
 
-	return db, nil
+	DB = db
 }
