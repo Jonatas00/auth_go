@@ -9,11 +9,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
+func init() {
 	config.LoadConfigs()
 	database.Connect()
+	database.LoadMigrations()
+}
 
+func main() {
 	r := gin.Default()
+
 	routes.LoadRoutes(&r.RouterGroup)
 
 	if err := r.Run(":" + config.APP_PORT); err != nil {
