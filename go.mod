@@ -3,6 +3,7 @@ module github.com/Jonatas00/auth_go
 go 1.22.2
 
 require (
+	github.com/badoux/checkmail v1.2.4
 	github.com/gin-gonic/gin v1.10.0
 	github.com/joho/godotenv v1.5.1
 	gorm.io/gorm v1.25.10
@@ -17,6 +18,7 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/rogpeppe/go-internal v1.6.1 // indirect
+	github.com/wagslane/go-password-validator v0.3.0 // indirect
 	golang.org/x/sync v0.7.0 // indirect
 )
 
@@ -41,7 +43,7 @@ require (
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	golang.org/x/arch v0.8.0 // indirect
-	golang.org/x/crypto v0.23.0 // indirect
+	golang.org/x/crypto v0.23.0
 	golang.org/x/net v0.25.0 // indirect
 	golang.org/x/sys v0.20.0 // indirect
 	golang.org/x/text v0.15.0 // indirect

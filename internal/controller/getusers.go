@@ -8,6 +8,6 @@ import (
 
 func Getusers(ctx *gin.Context) {
 	users := []model.User{}
-	database.DB.Find(&users)
+	database.DB.Select("id", "name", "email", "created_at, updated_at").Find(&users)
 	ctx.JSON(200, users)
 }
