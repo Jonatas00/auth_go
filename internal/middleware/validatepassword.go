@@ -8,7 +8,7 @@ import (
 )
 
 func ValidatePassword(password string) (string, error) {
-	const minEntropyBits = 15
+	const minEntropyBits = 25
 	err := passwordvalidator.Validate(password, minEntropyBits)
 	if err != nil {
 		return "", errors.New("weak password")
