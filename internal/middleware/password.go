@@ -7,7 +7,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func ValidatePassword(password string) (string, error) {
+func EncryptPassword(password string) (string, error) {
 	const minEntropyBits = 25
 	err := passwordvalidator.Validate(password, minEntropyBits)
 	if err != nil {
@@ -20,4 +20,12 @@ func ValidatePassword(password string) (string, error) {
 	}
 
 	return string(hashedPassword), nil
+}
+
+func CheckPassword(DBPassword, reqPassword string) error {
+	err := bcrypt.CompareHashAndPassword([]byte(DBPassword), []byte(reqPassword))
+	if err != nil {
+		return errors.New("invalid password")
+	}
+	return nil
 }

@@ -23,7 +23,7 @@ func Signup(ctx *gin.Context) {
 		return
 	}
 
-	hashedPassword, err := middleware.ValidatePassword(user.Password)
+	hashedPassword, err := middleware.EncryptPassword(user.Password)
 	if err != nil {
 		ctx.JSON(400, gin.H{
 			"erro": err.Error(),
