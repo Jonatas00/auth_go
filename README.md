@@ -1,4 +1,4 @@
-# Go auth API
+# Go authentication API
 
 Go basic API with JWT authentication
 
