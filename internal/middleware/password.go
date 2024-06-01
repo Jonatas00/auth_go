@@ -3,16 +3,16 @@ package middleware
 import (
 	"errors"
 
-	passwordvalidator "github.com/wagslane/go-password-validator"
+	//passwordvalidator "github.com/wagslane/go-password-validator"
 	"golang.org/x/crypto/bcrypt"
 )
 
 func EncryptPassword(password string) (string, error) {
-	const minEntropyBits = 25
-	err := passwordvalidator.Validate(password, minEntropyBits)
-	if err != nil {
-		return "", errors.New("weak password")
-	}
+	// const minEntropyBits = 25
+	// err := passwordvalidator.Validate(password, minEntropyBits)
+	// if err != nil {
+	// 	return "", errors.New("weak password")
+	// }
 
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), 10)
 	if err != nil {

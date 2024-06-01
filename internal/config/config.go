@@ -8,7 +8,8 @@ import (
 )
 
 var (
-	APP_PORT string
+	APP_PORT  string
+	JWT_TOKEN string
 
 	DB_HOST     string
 	DB_USER     string
@@ -26,6 +27,8 @@ func loadEnv() {
 	if APP_PORT = os.Getenv("APP_PORT"); APP_PORT == "" {
 		APP_PORT = "8080"
 	}
+	JWT_TOKEN = os.Getenv("JWT_TOKEN")
+
 	DB_HOST = os.Getenv("DB_HOST")
 	DB_USER = os.Getenv("DB_USER")
 	DB_PASSWORD = os.Getenv("DB_PASSWORD")
