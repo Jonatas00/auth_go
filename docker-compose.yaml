@@ -1,18 +1,9 @@
+version: '3.9'
+
 networks:
   network: {}
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - database
-    ports:
-      - "8080:8080"
-    networks:
-      - network
-
   database:
     image: postgres
     env_file:
@@ -27,6 +18,18 @@ services:
       - auth_api:/var/lib/postgresql
     networks:
       - network
-  
+    restart: always
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+    networks:
+      - network
+    restart: always
+
 volumes:
   auth_api: {}
