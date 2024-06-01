@@ -3,8 +3,8 @@ package controller
 import (
 	"errors"
 
+	"github.com/Jonatas00/auth_go/internal/authentication"
 	"github.com/Jonatas00/auth_go/internal/database"
-	"github.com/Jonatas00/auth_go/internal/middleware"
 	"github.com/Jonatas00/auth_go/internal/model"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -23,7 +23,7 @@ func Signup(ctx *gin.Context) {
 		return
 	}
 
-	hashedPassword, err := middleware.EncryptPassword(user.Password)
+	hashedPassword, err := authentication.EncryptPassword(user.Password)
 	if err != nil {
 		ctx.JSON(400, gin.H{
 			"erro": err.Error(),
