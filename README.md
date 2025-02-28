@@ -53,7 +53,7 @@ This command will run the app on default route "localhost:8080"
   {
     "name": "",
     "email": "",
-    "password" ""
+    "password": ""
   }
 ```
 
